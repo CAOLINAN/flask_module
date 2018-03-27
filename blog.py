@@ -4,16 +4,35 @@
 # @Date  : 3/22/18
 
 from config import DevConfig
-from flask import Flask
-
+from flask import Flask, redirect
+from flask import render_template
+from flask import Markup
+from flask import abort
 
 app = Flask(__name__)
 
 app.config.from_object(DevConfig)
 
+
 @app.route('/')
 def home():
     return '<h1>Hello World!</h1>'
+
+
+@app.route('/html/<int:name>')
+def html(name=None):
+    return redirect('/htmls/t')
+    # return render_template('hello.html', name=Markup(name))
+
+
+@app.route('/htmls/t')
+def htmls():
+    abort(401)
+
+
+@app.errorhandler(400)
+def bad_request(error):
+    return render_template('bad_request.html', error=error), 400
 
 
 @app.route('/sign_in')
