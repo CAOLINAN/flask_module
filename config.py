@@ -19,7 +19,9 @@ class DevConfig(Config):
     # Open the DEBUG
     DEBUG = True
     # SQLALCHEMY_DATABASE_URI = 'postgres://postgres:123@127.0.0.1:5432/ulord_test'
-    SQLALCHEMY_DATABASE_URI = "postgres://postgres:123@127.0.0.1:5432/jmilkfansblog"
+    # SQLALCHEMY_DATABASE_URI = "postgres://postgres:123@127.0.0.1:5432/jmilkfansblog"
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:123456@192.168.14.45:3306/testblog'
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///sqlite.db"
     # other sql connection string
     # main function :dialect+driver://username:password@host:port/database
     # 'mssql+pymssql://user:pass@IP:port/dbname'
